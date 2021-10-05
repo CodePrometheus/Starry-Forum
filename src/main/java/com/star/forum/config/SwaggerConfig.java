@@ -1,13 +1,5 @@
 package com.star.forum.config;
 
-/**
- * Swagger配置
- * 加入jwt
- *
- * @Author: zzStar
- * @Date: 12-01-2020 13:33
- */
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -21,6 +13,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+/**
+ * Swagger配置
+ *
+ * @Author: zzStar
+ * @Date: 12-01-2020 13:33
+ */
 public class SwaggerConfig {
 
     @Bean

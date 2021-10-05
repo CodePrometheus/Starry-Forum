@@ -20,11 +20,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("${server.error.path:${error.path:/error}}")
 public class CustomizeErrorController implements ErrorController {
 
-    @Override
-    public String getErrorPath() {
-        return "error";
-    }
-
     @RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
     public ModelAndView errorHtml(HttpServletRequest request, Model model) {
         HttpStatus status = getStatus(request);
@@ -37,10 +32,7 @@ public class CustomizeErrorController implements ErrorController {
             model.addAttribute("errorCode", status.value() + ":" + status.name());
             model.addAttribute("message", "服务冒烟了，要不然你稍后再试试！！！");
         }
-
-        // return new ModelAndView("error");
         return new ModelAndView("error");
-
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {
@@ -55,5 +47,6 @@ public class CustomizeErrorController implements ErrorController {
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }
     }
+
 }
 

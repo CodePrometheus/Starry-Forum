@@ -4,9 +4,9 @@ package com.star.forum.service;
 import com.star.forum.mapper.UserInfoMapper;
 import com.star.forum.model.UserInfo;
 import com.star.forum.model.UserInfoExample;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,7 +17,8 @@ import java.util.List;
  */
 @Service
 public class UserInfoService {
-    @Autowired
+
+    @Resource
     private UserInfoMapper userInfoMapper;
 
     private final int[] dayArr = new int[]{20, 19, 21, 20, 21, 22, 23, 23, 23, 24, 23, 22};

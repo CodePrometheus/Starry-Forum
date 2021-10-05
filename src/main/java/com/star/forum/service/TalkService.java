@@ -16,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,25 +28,20 @@ import java.util.List;
  */
 @Service
 public class TalkService {
-    @Autowired
+
+    @Resource
     private TalkMapper talkMapper;
-
-    @Autowired
+    @Resource
     private LikeService likeService;
-
-    @Autowired
+    @Resource
     private TalkExtMapper talkExtMapper;
-
-    @Autowired
+    @Resource
     private UserService userService;
-
-    @Autowired
+    @Resource
     private UserAccountService userAccountService;
-
-    @Autowired
+    @Resource
     private Environment env;
-
-    @Autowired
+    @Resource
     private TimeUtils timeUtils;
 
     @Transactional

@@ -7,8 +7,6 @@ import com.star.forum.mapper.QuestionMapper;
 import com.star.forum.model.Question;
 import com.star.forum.rabbitmq.PostMqMessage;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.index.query.MultiMatchQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -34,8 +32,8 @@ public class SearchService {
         int size = (int) page.getSize();
         PageRequest.of(current, size);
 
-        MultiMatchQueryBuilder query = QueryBuilders.multiMatchQuery(keyword, "title", "authorName", "TagName");
-        org.springframework.data.domain.Page<Post> posts = postRepository.search(query, Pageable.unpaged());
+        String[] fieldNames = {"title", "authorName", "TagName"};
+        org.springframework.data.domain.Page<Post> posts = postRepository.searchSimilar(new Post(), fieldNames, Pageable.unpaged());
 
         IPage pageData = new Page(page.getCurrent(), page.getSize(), posts.getTotalElements());
         pageData.setRecords(posts.getContent());
@@ -48,12 +46,12 @@ public class SearchService {
         ModelMapper modelMapper = new ModelMapper();
         Post map = modelMapper.map(question, Post.class);
         postRepository.save(map);
-        log.info("index updated successfully --> {}", map.toString());
+        log.info("index updated successfully --> {}", map);
     }
 
     public void removeIndex(PostMqMessage mqMessage) {
         Long postId = mqMessage.getPostId();
         postRepository.deleteById(postId);
-        log.info("index remove successfully --> {}", mqMessage.toString());
+        log.info("index remove successfully --> {}", mqMessage);
     }
 }

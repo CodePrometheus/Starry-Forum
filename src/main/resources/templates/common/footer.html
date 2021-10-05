@@ -1,0 +1,45 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="foot">
+    <div class="fly-footer">
+        <a th:href="${@environment.getProperty('site.info.contactQunUrl')}" target="_blank">联系我们</a>
+    </div>
+    <script src="/layui/layui.js"></script>
+    <!--script>
+      (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+      })();
+    </script>
+    <script>
+      (function(){
+        var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+      })();
+    </script-->
+</th:block>
+<script>
+  layui.cache.page = ''
+  layui.cache.user = {
+    username: '游客'
+    , uid: -1
+    , avatar: '/images/avatar/00.jpg'
+    , experience: 83
+    , sex: '男',
+  }
+  layui.config({
+    version: '3.0.0'
+    , base: '/mods/',  //这里实际使用时，建议改成绝对路径
+  }).extend({
+    fly: 'index',
+  }).use('fly')
+</script>
+
+</html>

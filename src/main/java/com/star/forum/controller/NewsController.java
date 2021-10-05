@@ -6,7 +6,6 @@ import com.star.forum.dto.NewsDTO;
 import com.star.forum.dto.PaginationDTO;
 import com.star.forum.model.User;
 import com.star.forum.service.NewsService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
@@ -28,13 +28,13 @@ import java.util.Map;
 @Controller
 public class NewsController {
 
-    @Autowired
+    @Resource
     private HotTagCache hotTagCache;
 
-    @Autowired
+    @Resource
     private LoginUserCache loginUserCache;
 
-    @Autowired
+    @Resource
     private NewsService newsService;
 
 

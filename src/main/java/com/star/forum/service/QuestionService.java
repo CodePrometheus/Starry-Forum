@@ -1,7 +1,6 @@
 package com.star.forum.service;
 
 
-import com.star.forum.rabbitmq.RabbitmqConfig;
 import com.star.forum.dto.PaginationDTO;
 import com.star.forum.dto.QuestionDTO;
 import com.star.forum.dto.QuestionQueryDTO;
@@ -12,6 +11,7 @@ import com.star.forum.exception.CustomizeException;
 import com.star.forum.mapper.*;
 import com.star.forum.model.*;
 import com.star.forum.rabbitmq.PostMqMessage;
+import com.star.forum.rabbitmq.RabbitmqConfig;
 import com.star.forum.util.TimeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,25 +38,26 @@ import java.util.stream.Collectors;
  */
 @Service
 public class QuestionService {
-    @Autowired
+
+    @Resource
     private AmqpTemplate amqpTemplate;
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
+    @Resource
     private UserAccountMapper userAccountMapper;
-    @Autowired
+    @Resource
     private UserAccountExtMapper userAccountExtMapper;
-    @Autowired
+    @Resource
     private QuestionMapper questionMapper;
-    @Autowired
+    @Resource
     private QuestionExtMapper questionExtMapper;
-    @Autowired
+    @Resource
     private ThumbMapper thumbMapper;
-    @Autowired
+    @Resource
     private TimeUtils timeUtils;
-    @Autowired
+    @Resource
     private LikeService likeService;
-    @Autowired
+    @Resource
     private UserAccountService userAccountService;
 
     @Value("${score1.publish.inc}")
@@ -71,12 +73,10 @@ public class QuestionService {
     @Value("${user.score3.priorities}")
     private Integer score3Priorities;
 
-    @Autowired
+    @Resource
     private Environment env;
 
     public PaginationDTO listByQuestionQueryDTO(QuestionQueryDTO questionQueryDTO) {
-
-
         return null;
     }
 

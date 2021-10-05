@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.6.RELEASE</version>
+        <version>2.5.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.star.forum</groupId>
@@ -38,19 +38,17 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-elasticsearch</artifactId>
-            <version>3.2.6.RELEASE</version>
         </dependency>
-
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-spring</artifactId>
-            <version>1.7.0</version>
+            <version>1.8.0</version>
         </dependency>
 
         <dependency>
@@ -82,19 +80,19 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
-            <version>4.10.0-RC1</version>
+            <version>5.0.0-alpha.2</version>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.75</version>
+            <version>1.2.78</version>
         </dependency>
 
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>2.1.4</version>
+            <version>2.2.0</version>
         </dependency>
 
         <dependency>
@@ -117,7 +115,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.11</version>
+            <version>3.12.0</version>
         </dependency>
 
         <dependency>
@@ -129,7 +127,7 @@
         <dependency>
             <groupId>com.qcloud</groupId>
             <artifactId>cos_api</artifactId>
-            <version>5.6.35</version>
+            <version>5.6.58</version>
         </dependency>
 
         <dependency>
@@ -141,7 +139,7 @@
         <dependency>
             <groupId>cn.jpush.api</groupId>
             <artifactId>jiguang-common</artifactId>
-            <version>1.0.8</version>
+            <version>1.1.11</version>
             <exclusions>
                 <exclusion>
                     <artifactId>okhttp</artifactId>
@@ -153,23 +151,23 @@
         <dependency>
             <groupId>com.tencentcloudapi</groupId>
             <artifactId>tencentcloud-sdk-java</artifactId>
-            <version>3.0.126</version>
+            <version>4.0.11</version>
             <exclusions>
                 <exclusion>
                     <artifactId>okio</artifactId>
                     <groupId>com.squareup.okio</groupId>
                 </exclusion>
-            </exclusions><!-- 注：这里只是示例版本号，请到 https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java 获取最新版本号 -->
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>net.jodah</groupId>
             <artifactId>expiringmap</artifactId>
-            <version>0.5.9</version>
+            <version>0.5.10</version>
         </dependency>
         <dependency>
             <groupId>com.baidu.aip</groupId>
             <artifactId>java-sdk</artifactId>
-            <version>4.12.0</version>
+            <version>4.16.2</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.slf4j</groupId>
@@ -207,7 +205,7 @@
         <dependency>
             <groupId>org.iherus.shiro</groupId>
             <artifactId>shiro-redis</artifactId>
-            <version>2.4.0</version>
+            <version>2.5.0</version>
             <exclusions>
                 <exclusion>
                     <artifactId>shiro-core</artifactId>
@@ -218,7 +216,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.2.4</version>
+            <version>1.2.7</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate.validator</groupId>
@@ -227,7 +225,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.2</version>
+            <version>3.4.3.4</version>
         </dependency>
     </dependencies>
 

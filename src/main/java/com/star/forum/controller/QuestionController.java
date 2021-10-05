@@ -9,13 +9,13 @@ import com.star.forum.exception.CustomizeException;
 import com.star.forum.model.Question;
 import com.star.forum.service.CommentService;
 import com.star.forum.service.QuestionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
@@ -30,11 +30,11 @@ import java.util.Map;
 @Controller
 public class QuestionController {
 
-    @Autowired
+    @Resource
     private QuestionService questionService;
-    @Autowired
+    @Resource
     private CommentService commentService;
-    @Autowired
+    @Resource
     private Environment env;
 
     @Value("${vaptcha.vid}")

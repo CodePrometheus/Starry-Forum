@@ -7,13 +7,13 @@ import com.star.forum.dto.UserDTO;
 import com.star.forum.enums.CommentTypeEnum;
 import com.star.forum.service.CommentService;
 import com.star.forum.service.QuestionService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -24,11 +24,11 @@ import java.util.List;
 @Controller
 public class CommentController {
 
-    @Autowired
+    @Resource
     private CommentService commentService;
     @Value("${vaptcha.vid}")
     private String vaptcha_vid;
-    @Autowired
+    @Resource
     private QuestionService questionService;
 
     @GetMapping(value = {"/comment/{id}"})

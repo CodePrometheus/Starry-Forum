@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * 奔跑吧，zzStar
+ * 奔跑吧，zzStar ;)
  *
  * @Author: zzStar
  * @Date: 12-01-2020 14:52

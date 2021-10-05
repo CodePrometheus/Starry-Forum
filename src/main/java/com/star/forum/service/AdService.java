@@ -3,9 +3,9 @@ package com.star.forum.service;
 import com.star.forum.mapper.AdMapper;
 import com.star.forum.model.Ad;
 import com.star.forum.model.AdExample;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -14,7 +14,8 @@ import java.util.List;
  */
 @Service
 public class AdService {
-    @Autowired
+
+    @Resource
     private AdMapper adMapper;
 
     public List<Ad> list(String pos) {
@@ -26,5 +27,6 @@ public class AdService {
                 .andGmtEndGreaterThan(System.currentTimeMillis());
         return adMapper.selectByExample(adExample);
     }
+
 }
 

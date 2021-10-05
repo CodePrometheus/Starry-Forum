@@ -6,8 +6,6 @@ import com.star.forum.dto.ResultDTO;
 import com.star.forum.dto.UserDTO;
 import com.star.forum.exception.CustomizeErrorCode;
 import com.star.forum.exception.CustomizeException;
-import com.star.forum.mapper.UserAccountMapper;
-import com.star.forum.mapper.UserMapper;
 import com.star.forum.util.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -50,17 +48,6 @@ public class SessionInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        //拦截非本站post请求，如果你需要改造为前后端分离项目，此处代码可能会有所影响
-      /* String origin = request.getHeader("origin");//用来说明请求从哪里发起的，包括，且仅仅包括协议和域名。post请求才有，这个参数一般只存在于CORS跨域请求中，可以看到response有对应的header：Access-Control-Allow-Origin。
-       if(origin!=null&&(!host.equals(origin.split("//")[1])||referer==null)){
-           response.setStatus(406);
-           return false;
-       }*/
-
-        //设置广告
-    /*    for (AdPosEnum adPos : AdPosEnum.values()) {
-            request.getServletContext().setAttribute(adPos.name(), adService.list(adPos.name()));
-        }*/
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         Method method = handlerMethod.getMethod();
         String token = null;

@@ -8,7 +8,6 @@ import com.star.forum.exception.CustomizeErrorCode;
 import com.star.forum.service.UserService;
 import com.star.forum.util.CookieUtils;
 import com.star.forum.util.JavaMailUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,18 +29,18 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class MailController {
 
-    @Autowired
+    @Resource
     private UserService userService;
-    @Autowired
+    @Resource
     private IpLimitCache ipLimitCache;
-    @Autowired
+    @Resource
     private TemporaryCache temporaryCache;
 
     @Value("${site.main.title}")
     private String siteTitle;
     @Value("${site.main.domain}")
     private String domain;
-    @Autowired
+    @Resource
     private CookieUtils cookieUtils;
 
 
@@ -74,7 +74,7 @@ public class MailController {
 
     }
 
-    @ResponseBody//@ResponseBody返回json格式的数据
+    @ResponseBody
     @RequestMapping(value = "/mail/submitMail", method = RequestMethod.POST)
     public Object submitMail(@RequestParam("id") String id,
                              @RequestParam("mail") String mail,
@@ -84,7 +84,7 @@ public class MailController {
         return userService.updateUserMailById(id, mail);
     }
 
-    @ResponseBody//@ResponseBody返回json格式的数据
+    @ResponseBody
     @RequestMapping(value = "/mail/registerOrLoginWithMail", method = RequestMethod.POST)
     public Object registerOrLoginWithMail(
             @RequestParam("mail") String mail,

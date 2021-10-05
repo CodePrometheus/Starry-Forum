@@ -16,10 +16,10 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.HashMap;
@@ -33,10 +33,10 @@ import java.util.Map;
 @RequestMapping("/api/talk")
 @Api(tags = {"说说接口"})
 public class TalkApi {
-    @Autowired
-    private TalkService talkService;
 
-    @Autowired
+    @Resource
+    private TalkService talkService;
+    @Resource
     private IpLimitCache ipLimitCache;
 
     @UserLoginToken
@@ -44,7 +44,7 @@ public class TalkApi {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "talkInsertVO", value = "说说基本信息", dataType = "TalkInsertVO")
     })
-    @ResponseBody// @ResponseBody返回json格式的数据
+    @ResponseBody
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public Object insert(@RequestBody @Valid TalkInsertVO talkInsertVO,//@RequestBody接受json格式的数据
                          HttpServletRequest request

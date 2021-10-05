@@ -8,10 +8,10 @@ import com.star.forum.vo.ThumbVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -23,7 +23,8 @@ import javax.validation.Valid;
 @RequestMapping("/api/like")
 @Api(tags = {"点赞/收藏接口"})
 public class LikeApi {
-    @Autowired
+
+    @Resource
     private LikeService likeService;
 
     @UserLoginToken

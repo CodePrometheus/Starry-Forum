@@ -17,11 +17,11 @@ import com.star.forum.service.UserService;
 import com.star.forum.util.CookieUtils;
 import com.star.forum.util.TokenUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,21 +36,21 @@ import java.util.Map;
  */
 @Controller
 public class UserController {
-    @Autowired
+    @Resource
     private QuestionService questionService;
-    @Autowired
+    @Resource
     private UserService userService;
-    @Autowired
+    @Resource
     private UserInfoService userInfoService;
-    @Autowired
+    @Resource
     private UserAccountService userAccountService;
-    @Autowired
+    @Resource
     private TokenUtils tokenUtils;
-    @Autowired
+    @Resource
     private CookieUtils cookieUtils;
 
     @UserLoginToken
-    @ResponseBody//@ResponseBody返回json格式的数据
+    @ResponseBody
     @RequestMapping(value = "/api/user/repass", method = RequestMethod.POST)
     public Object modifyPw(HttpServletRequest request,
                            @RequestParam("nowpass") String nowpass,

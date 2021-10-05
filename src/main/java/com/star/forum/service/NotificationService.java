@@ -15,6 +15,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,7 +27,7 @@ import java.util.Objects;
 @Service
 public class NotificationService {
 
-    @Autowired
+    @Resource
     private NotificationMapper notificationMapper;
 
     public PaginationDTO list(Long userId, Integer page, Integer size) {

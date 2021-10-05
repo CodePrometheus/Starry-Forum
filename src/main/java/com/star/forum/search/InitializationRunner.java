@@ -1,10 +1,11 @@
 package com.star.forum.search;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
 
 /**
  * @Author: zzStar
@@ -14,10 +15,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class InitializationRunner implements ApplicationRunner {
 
-    @Autowired
+    @Resource
     private ElasticSearchUtil elasticSearchUtil;
 
-    @Autowired
+    @Resource
     private PostRepository postRepository;
 
     @Override
@@ -32,4 +33,5 @@ public class InitializationRunner implements ApplicationRunner {
             log.info("===elasticsearch已存在索引===");
         }
     }
+
 }

@@ -2,17 +2,16 @@ package com.star.forum.controller;
 
 import com.star.forum.annotation.UserLoginToken;
 import com.star.forum.cache.TagCache;
-import com.star.forum.rabbitmq.RabbitmqConfig;
 import com.star.forum.dto.QuestionDTO;
 import com.star.forum.dto.UserDTO;
 import com.star.forum.exception.CustomizeErrorCode;
 import com.star.forum.exception.CustomizeException;
 import com.star.forum.model.Question;
 import com.star.forum.rabbitmq.PostMqMessage;
+import com.star.forum.rabbitmq.RabbitmqConfig;
 import com.star.forum.service.QuestionService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.amqp.core.AmqpTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -31,13 +31,13 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class PublishController {
 
-    @Autowired
+    @Resource
     private AmqpTemplate amqpTemplate;
 
-    @Autowired
+    @Resource
     private QuestionService questionService;
 
-//    @Autowired
+//    @Resource
 //    private BaiduCloudProvider baiduCloudProvider;
 
     @UserLoginToken

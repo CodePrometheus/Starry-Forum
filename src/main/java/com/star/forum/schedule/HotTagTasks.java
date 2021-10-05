@@ -7,20 +7,19 @@ import com.star.forum.model.QuestionExample;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.session.RowBounds;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.*;
 
-@Component
 @Slf4j
+@Component
 public class HotTagTasks {
 
-    @Autowired
+    @Resource
     private QuestionMapper questionMapper;
-
-    @Autowired
+    @Resource
     private HotTagCache hotTagCache;
 
 

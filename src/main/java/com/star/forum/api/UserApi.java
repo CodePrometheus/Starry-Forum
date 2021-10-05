@@ -8,12 +8,13 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * 用户接口
@@ -26,7 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Api(tags = {"用户接口"})
 public class UserApi {
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     @ApiOperation(value = "查询用户", notes = "根据查询条件来获取用户")

@@ -16,10 +16,10 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.List;
@@ -33,11 +33,9 @@ import java.util.List;
 @Api(tags = {"评论接口"})
 public class CommentApi {
 
-
-    @Autowired
+    @Resource
     private CommentService commentService;
-
-    @Autowired
+    @Resource
     private IpLimitCache ipLimitCache;
 
     @UserLoginToken
@@ -45,7 +43,7 @@ public class CommentApi {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "commentInsertVO", value = "评论基本信息", dataType = "CommentInsertVO")
     })
-    // @ResponseBody返回json格式的数据
+    
     @ResponseBody
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
     public Object insert(@RequestBody @Valid CommentInsertVO commentInsertVO,//@RequestBody接受json格式的数据

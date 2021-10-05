@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,36 +32,27 @@ import java.util.stream.Collectors;
 @Service
 public class CommentService {
 
-    @Autowired
+    @Resource
     private TalkService talkService;
-
-    @Autowired
+    @Resource
     private UserService userService;
-
-    @Autowired
+    @Resource
     private CommentMapper commentMapper;
-
-    @Autowired
+    @Resource
     private QuestionMapper questionMapper;
-
-    @Autowired
+    @Resource
     private QuestionExtMapper questionExtMapper;
-
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-
-    @Autowired
+    @Resource
     private UserAccountMapper userAccountMapper;
-    @Autowired
+    @Resource
     private UserAccountExtMapper userAccountExtMapper;
-
-    @Autowired
+    @Resource
     private CommentExtMapper commentExtMapper;
-
-    @Autowired
+    @Resource
     private NotificationMapper notificationMapper;
-
-    @Autowired
+    @Resource
     private TimeUtils timeUtils;
 
     @Value("${score1.comment.inc}")

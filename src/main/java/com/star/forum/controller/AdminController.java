@@ -9,11 +9,11 @@ import com.star.forum.model.UserAccount;
 import com.star.forum.model.UserAccountExample;
 import com.star.forum.service.QuestionService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,9 +29,9 @@ import java.util.Map;
 public class AdminController {
 
 
-    @Autowired
+    @Resource
     private QuestionService questionService;
-    @Autowired
+    @Resource
     private UserAccountMapper userAccountMapper;
 
     @GetMapping("/admin2508")

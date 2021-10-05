@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,19 +28,19 @@ import java.util.List;
 @Service
 public class LikeService {
 
-    @Autowired
+    @Resource
     private ThumbMapper thumbMapper;
-    @Autowired
+    @Resource
     private CommentMapper commentMapper;
-    @Autowired
+    @Resource
     private ThumbExtMapper thumbExtMapper;
-    @Autowired
+    @Resource
     private NotificationMapper notificationMapper;
-    @Autowired
+    @Resource
     private QuestionMapper questionMapper;
-    @Autowired
+    @Resource
     private TalkMapper talkMapper;
-    @Autowired
+    @Resource
     private TalkExtMapper talkExtMapper;
 
     @Transactional

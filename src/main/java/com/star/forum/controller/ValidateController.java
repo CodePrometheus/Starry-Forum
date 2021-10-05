@@ -4,12 +4,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.star.forum.cache.IpLimitCache;
 import com.star.forum.dto.ValidateDTO;
 import com.star.forum.provider.VaptchaProvider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.annotation.Resource;
 
 /**
  * 验证码逻辑
@@ -20,10 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ValidateController {
 
-    @Autowired
+    @Resource
     private IpLimitCache ipLimitCache;
 
-    @ResponseBody//@ResponseBody返回json格式的数据
+    @ResponseBody
     @RequestMapping(value = "/validate", method = RequestMethod.POST)
     public Object post(@RequestParam(name = "token", required = false) String token,
                        @RequestParam(name = "scene", required = false) int scene,
@@ -58,7 +59,7 @@ public class ValidateController {
     }
 
     @Deprecated
-    @ResponseBody//@ResponseBody返回json格式的数据
+    @ResponseBody
     @RequestMapping(value = "/getIp", method = RequestMethod.GET)
     public String getIp() {
         // System.out.println("3333"+token);

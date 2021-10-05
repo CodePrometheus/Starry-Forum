@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>测试文件</title>
+    <th:block th:insert="~{/common/header :: head}"></th:block>
+    <script src="/js/community.js" type="application/javascript"></script>
+    <script src="https://community-1251590924.cos.ap-hongkong.myqcloud.com/js/moment.js"
+            type="application/javascript"></script>
+</head>
+<body>
+<div class="">
+    <div class="">
+        <div class="">内容区域1</div>
+    </div>
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title">李清照</h2>
+        <div class="layui-colla-content layui-show">内容区域</div>
+    </div>
+    <div class="layui-colla-item">
+        <h2 class="layui-colla-title">鲁迅</h2>
+        <div class="layui-colla-content layui-show">内容区域</div>
+    </div>
+</div>
+<script src="/layui/layui.js"></script>
+<script>
+  //注意：折叠面板 依赖 element 模块，否则无法进行功能性操作
+  layui.use('element', function () {
+    var element = layui.element
+
+    //…
+  })
+</script>
+</body>
+
+<!--script>
+    layui.use(['element', 'layer'], function(){
+        var element = layui.element();
+        var layer = layui.layer;
+
+        //监听折叠
+        element.on('collapse(sub-comments)', function(data){
+            layer.msg('展开状态：'+ data.show);
+        });
+    });
+</script-->
+</html>

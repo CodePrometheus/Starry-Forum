@@ -10,13 +10,13 @@ import com.star.forum.model.UserAccount;
 import com.star.forum.search.SearchService;
 import com.star.forum.service.QuestionService;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -29,16 +29,16 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    @Autowired
+    @Resource
     private SearchService searchService;
 
-    @Autowired
+    @Resource
     private QuestionService questionService;
 
-    @Autowired
+    @Resource
     private HotTagCache hotTagCache;
 
-    @Autowired
+    @Resource
     private LoginUserCache loginUserCache;
 
     @Value("${site.main.index}")
@@ -91,5 +91,23 @@ public class IndexController {
 //        request.setAttribute("question", search);
         return "search";
 */
+
+    @GetMapping("/search")
+    public String search(HttpServletRequest request,
+                         Model model,
+                         @RequestParam(name = "page", defaultValue = "1") Integer page,
+                         @RequestParam(name = "size", defaultValue = "15") Integer size,
+                         @RequestParam(name = "column", required = false) Integer column2,
+                         @RequestParam(name = "search", required = false) String search,
+                         @RequestParam(name = "tag", required = false) String tag,
+                         @RequestParam(name = "sort", required = false) String sort) {
+        List<QuestionDTO> questionDTOS = questionService.listTopwithColumn(search, tag, sort, column2);
+        model.addAttribute("search", search);
+        model.addAttribute("tag", tag);
+        model.addAttribute("sort", sort);
+        model.addAttribute("column", column2);
+        model.addAttribute("navtype", "communitynav");
+        return "search";
+    }
 }
 

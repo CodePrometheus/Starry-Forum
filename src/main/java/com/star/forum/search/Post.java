@@ -13,18 +13,18 @@ import java.util.Date;
  * @Date: 03-05-2021 23:48
  */
 @Data
-@Document(indexName = "forum", createIndex = true, type = "docs", shards = 1, replicas = 0)
+@Document(indexName = "starry-forum")
 public class Post {
 
     @Id
     private Long id;
 
-    @Field(type = FieldType.Keyword, analyzer = "ik_max_word")
+    @Field(type = FieldType.Text, analyzer = "ik_max_word")
     private String title;
 
     private Long authorId;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String authorName;
 
     private String authorAvatar;
@@ -37,7 +37,7 @@ public class Post {
 
     private Integer viewCount;
 
-    @Field(type = FieldType.Keyword)
+    @Field(type = FieldType.Text)
     private String tag;
 
     private Date createTime;

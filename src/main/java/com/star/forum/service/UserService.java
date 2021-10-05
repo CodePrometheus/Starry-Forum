@@ -1,6 +1,5 @@
 package com.star.forum.service;
 
-
 import com.star.forum.dto.PaginationDTO;
 import com.star.forum.dto.ResultDTO;
 import com.star.forum.dto.UserDTO;
@@ -22,6 +21,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,20 +31,20 @@ import java.util.List;
  */
 @Service
 public class UserService {
-    @Autowired
+    @Resource
     private Environment env;
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
+    @Resource
     private UserExtMapper userExtMapper;
-    @Autowired
+    @Resource
     private UserInfoMapper userInfoMapper;
-    @Autowired
+    @Resource
     private UserAccountMapper userAccountMapper;
 
-    @Autowired
+    @Resource
     private UserAccountService userAccountService;
-    @Autowired
+    @Resource
     private TokenUtils tokenUtils;
     @Value("${site.password.salt}")
     private String salt;
